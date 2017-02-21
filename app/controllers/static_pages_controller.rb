@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  @permitted
   def home
   end
 
