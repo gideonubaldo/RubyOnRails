@@ -3,6 +3,9 @@ class StaticPagesController < ApplicationController
   def home
   end
 
+  def restaurant
+  end
+
   def help
   end
 
