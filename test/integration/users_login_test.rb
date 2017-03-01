@@ -1,19 +1,20 @@
-class SessionsController < ApplicationController
+require 'test_helper'
 
+class UsersLoginTest < ActionDispatch::IntegrationTest
 
-  def new
+  def setup
+    @user = users(:michael)
   end
 
-  def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
-    else
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
-    end
+  test "login with invalid information" do
+    get login_path
+    assert_template 'sessions/new'
+    post login_path, params: { session: { email: "", password: "" } }
+    assert_template 'sessions/new'
+    assert_not flash.empty?
+    get root_path
+    assert flash.empty?
   end
 
-  def destroy
-  end
+  
 end
