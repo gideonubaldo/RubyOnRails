@@ -14,7 +14,7 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?
   end
-   # Logs out the current user.
+   # Logs out the curren45t user.
   def log_out
     session.delete(:user_id)
     @current_user = nil
