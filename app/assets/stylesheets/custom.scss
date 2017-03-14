@@ -19,11 +19,20 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  padding-top: 60px;
+  padding-top: 10px;
 }
 
 section {
   overflow: auto;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
 }
 
 textarea {
