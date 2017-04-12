@@ -1,10 +1,30 @@
-<% provide(:title, "PlateRate | Home") %>
-<div class="center jumbotron" >
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
   <%= image_tag 'logo.png',:title => 'PlateRate Logo'  %>
-  <h3>Restaurant Rating WebApp</h3>
-  <h2>
-    If you would like to rate an on-campus restaurant, click sign-up now!!!
-  </h2>
+    <h1>Restaurant Rating WebApp</h1>
 
-  <%= link_to "Sign up now!", signup_path , class: "btn btn-lg btn-primary" %>
-</div>
+    <h2>
+      If you would like to rate an on-campus restaurant, click sign-up now!!!
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

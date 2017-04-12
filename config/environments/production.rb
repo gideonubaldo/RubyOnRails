@@ -40,7 +40,12 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-   config.force_ssl = true
+  #-->>    #This is a potentially serious security flaw in our application, and the way to fix it is to use 
+           #Secure Sockets Layer (SSL)12 to encrypt all relevant information before it leaves the local browser. 
+           #Although we could use SSL on just the signup page, it’s actually easier to implement it site-wide, 
+           #which has the additional benefits of securing user login (Chapter 8) and making our application immune
+           # to the critical session hijacking vulnerability discussed in Section 9.1.
+           config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
