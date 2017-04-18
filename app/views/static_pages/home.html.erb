@@ -1,3 +1,4 @@
+<% provide(:title, "Home") %>
 <% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
@@ -17,6 +18,7 @@
     </div>
   </div>
 <% else %>
+<div class ="headline">
   <div class="center jumbotron">
   <%= image_tag 'logo.png',:title => 'PlateRate Logo'  %>
     <h1>Restaurant Rating WebApp</h1>
@@ -27,4 +29,5 @@
 
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
+</div>
 <% end %>
